@@ -1,0 +1,90 @@
+﻿@model Bright_Future.Models.ContactInquiry
+@{
+    ViewData["Title"] = "联系我们";
+}
+
+<div class="contact-page">
+    <div class="container">
+        <h1 class="display-4 text-center mb-5">联系我们</h1>
+
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h2>联系方式</h2>
+                        <p>我们致力于为您提供专业的移民留学服务。欢迎通过以下方式与我们联系：</p>
+
+                        <div class="contact-info mt-4">
+                            <p><strong>卓越移民留学</strong></p>
+                            <p><strong>孟先生</strong>（持牌移民顾问，注册会计师）</p>
+                            <p><i class="fas fa-weixin mr-2 text-primary"></i> 微信号：mzy150522</p>
+                            <p><i class="fas fa-envelope mr-2 text-primary"></i> 邮箱：shaun@brightfuture.co.nz</p>
+                            <p><i class="fas fa-map-marker-alt mr-2 text-primary"></i> 新西兰奥克兰</p>
+                        </div>
+
+                        <div class="social-media mt-4">
+                            <h5>关注我们</h5>
+                            <div class="d-flex">
+                                <div class="qr-code mr-3">
+                                    <p>微信</p>
+                                    <img src="~/images/IMG_7650.png" alt="微信二维码" width="120" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2>发送信息</h2>
+                        <form asp-action="Contact" method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                            <div class="form-group">
+                                <label asp-for="Name" class="control-label">姓名</label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Email" class="control-label">邮箱</label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Phone" class="control-label">电话（可选）</label>
+                                <input asp-for="Phone" class="form-control" />
+                                <span asp-validation-for="Phone" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Subject" class="control-label">主题</label>
+                                <input asp-for="Subject" class="form-control" />
+                                <span asp-validation-for="Subject" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Message" class="control-label">留言</label>
+                                <textarea asp-for="Message" class="form-control" rows="5"></textarea>
+                                <span asp-validation-for="Message" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success btn-block">发送信息</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,106 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bright Future</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                    <img src="~/images/bright-future-logo.png" alt="Bright Future Logo" height="40" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item"><a class="nav-link text-dark" href="@Url.Action("Index", "Home")">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="@Url.Action("About", "Home")">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="@Url.Action("StudyInNZ", "Home")">Study in NZ</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="@Url.Action("Migration", "Home")">Migration</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="@Url.Action("VisaServices", "Home")">Visa Services</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" asp-controller="Home" asp-action="DifficultIssues">Difficult Issues</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="@Url.Action("CaseStudies", "Home")">Case Studies</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="@Url.Action("PolicyUpdates", "Home")">Policy Updates</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="@Url.Action("Contact", "Home")">Contact</a></li>
+                    </ul>
+
+                    <!-- LANGUAGE SWITCHER -->
+                    <div class="language-selector d-flex align-items-center">
+                        <form method="post" action="@Url.Action("SetLanguage", "Home")" class="mr-2">
+                            <input type="hidden" name="culture" value="en-GB" />
+                            <input type="hidden" name="returnUrl" value="@Context.Request.Path" />
+                            <button type="submit" class="btn btn-link p-0 text-dark">English</button>
+                        </form>
+                        |
+                        <form method="post" action="@Url.Action("SetLanguage", "Home")" class="ml-2">
+                            <input type="hidden" name="culture" value="zh-CN" />
+                            <input type="hidden" name="returnUrl" value="@Context.Request.Path" />
+                            <button type="submit" class="btn btn-link p-0 text-dark">中文</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main" class="pb-3 flex-grow-1">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+
+    <footer class="border-top footer text-muted mt-auto">
+        <div class="container">
+            <div class="row py-4">
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p><i class="fas fa-envelope mr-2"></i> shaun@brightfuture.co.nz</p>
+                    <p><i class="fas fa-map-marker-alt mr-2"></i> Auckland, New Zealand</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Connect With Us</h5>
+                    <div class="social-media">
+                        <div class="qr-codes d-flex">
+                            <div class="qr-code text-center">
+                                <p>WeChat</p>
+                                <img src="~/images/IMG_7650.png" alt="WeChat QR Code" width="100" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                        <li><a href="@Url.Action("About", "Home")">About Us</a></li>
+                        <li><a href="@Url.Action("StudyInNZ", "Home")">Study in NZ</a></li>
+                        <li><a href="@Url.Action("Migration", "Home")">Migration</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row border-top pt-3">
+                <div class="col text-center">
+                    &copy; 2025 - Bright Future - <a href="@Url.Action("Privacy", "Home")">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

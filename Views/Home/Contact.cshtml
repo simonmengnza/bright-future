@@ -1,0 +1,89 @@
+﻿@model Bright_Future.Models.ContactInquiry
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<div class="contact-page">
+    <div class="container">
+        <h1 class="display-4 text-center mb-5">Contact Us</h1>
+
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h2>Get in Touch</h2>
+                        <p>We're here to help with all your immigration needs. Feel free to contact us through any of the following methods:</p>
+
+                        <div class="contact-info mt-4">
+                            <p><strong>Premium Immigration Services Limited</strong>, trading as Bright Future</p>
+                            <p><strong>Shaun Meng</strong> (Licensed Immigration Advisor, Chartered Accountant)</p>
+                            <p><i class="fas fa-envelope mr-2 text-primary"></i> shaun@brightfuture.co.nz</p>
+                            <p><i class="fas fa-map-marker-alt mr-2 text-primary"></i> Auckland, New Zealand</p>
+                        </div>
+
+                        <div class="social-media mt-4">
+                            <h5>Connect With Us</h5>
+                            <div class="d-flex">
+                                <div class="qr-code mr-3">
+                                    <p>WeChat</p>
+                                    <img src="~/images/IMG_7650.png" alt="WeChat QR Code" width="120" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2>Send Us a Message</h2>
+                        <form asp-action="Contact" method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                            <div class="form-group">
+                                <label asp-for="Name" class="control-label">Name</label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Email" class="control-label">Email</label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Phone" class="control-label">Phone (optional)</label>
+                                <input asp-for="Phone" class="form-control" />
+                                <span asp-validation-for="Phone" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Subject" class="control-label">Subject</label>
+                                <input asp-for="Subject" class="form-control" />
+                                <span asp-validation-for="Subject" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Message" class="control-label">Message</label>
+                                <textarea asp-for="Message" class="form-control" rows="5"></textarea>
+                                <span asp-validation-for="Message" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success btn-block">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
