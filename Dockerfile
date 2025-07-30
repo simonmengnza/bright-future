@@ -23,4 +23,4 @@ ENV ASPNETCORE_URLS=http://+:${PORT}
 EXPOSE 10000
 
 # avoid the space in the file name if you can
-ENTRYPOINT ["dotnet", "BrightFuture.dll"]
+ENTRYPOINT ["dotnet", "Bright Future.dll"]
